@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mdc-button{
+  margin: 5px !important;
+};
+.content{
+  display:  block !important;
+};
+a{
+  color: white;
+  padding: 1%;
+}
+.error-snackbar {
+  background-color: #f44336; /* Red color for error */
+  color: #fff; /* White text color */
+}
+
+.success-snackbar {
+  background-color: #4caf50; /* Green color for success */
+  color: #fff; /* White text color */
+}

@@ -1,0 +1,22 @@
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+  }
+  
+  .status-Active {
+    background-color: green;
+  }
+  
+  .status-Inactive {
+    background-color: red;
+  }
+  
+  .status-unknown {
+    background-color: gray;
+  }
+  table tr td img{
+    height: 50px;
+  }

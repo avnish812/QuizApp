@@ -1,0 +1,97 @@
+<div class="example-container">
+    <form [formGroup]="questionForm" (submit)="postQuestion()">
+        <div class="question-answers">
+            <div class="form-group">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>All Topics </mat-label>
+                    <mat-select formControlName="quiz_id" (selectionChange)="topicSelected($event)">
+                        <mat-option *ngFor="let item of getQuestionAnswers" [value]="item.quiz_id">
+                            {{item.quiz_topic}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label> Questaion Type </mat-label>
+                    <input matInput [matAutocomplete]="qType" formControlName="question_type">
+                    <mat-autocomplete #qType="matAutocomplete" (optionSelected)="onQuestionTypeSelected($event)">
+                        <mat-option *ngFor="let type of ['MCQ','STATEMENT']" [value]="type">
+                            {{type}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="form">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label> Question </mat-label>
+                    <textarea matInput formControlName="question"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="form-group" *ngIf="questionForm.get('question_type')?.value ==='MCQ'">
+                <div class="option1">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Option 1
+                        </mat-label>
+                        <input matInput formControlName="option_1">
+                    </mat-form-field>
+                </div>
+                <div class="option2">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Option 2
+                        </mat-label>
+                        <input matInput formControlName="option_2">
+                    </mat-form-field>
+                </div>
+                <div class="option3">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Option 3
+                        </mat-label>
+                        <input matInput formControlName="option_3">
+                    </mat-form-field>
+                </div>
+                <div class="option4">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Option 4
+                        </mat-label>
+                        <input matInput formControlName="option_4">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="answer" *ngIf="questionForm.get('question_type')?.value ==='MCQ'">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Correct Answer </mat-label>
+                        <input matInput formControlName="correct_answer" [matAutocomplete]="ans">
+                        <mat-autocomplete #ans="matAutocomplete">
+                            <mat-option *ngFor="let answers of allOptions$ |async" [value]="answers">
+                               {{answers}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="marks" *ngIf="questionForm.get('question_type')?.value ==='MCQ'">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Marks
+                        </mat-label>
+                        <input matInput formControlName="marks">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="status">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label> Status
+                    </mat-label>
+                    <input matInput [matAutocomplete]="status" formControlName="status">
+                    <mat-autocomplete #status="matAutocomplete" >
+                        <mat-option *ngFor="let status of ['A','D']" [value]="status">
+                            {{status}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="btn">
+                <button type="submit" [disabled]="questionForm.invalid">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

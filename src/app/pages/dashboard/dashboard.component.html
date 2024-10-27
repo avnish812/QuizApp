@@ -1,0 +1,22 @@
+
+<app-navbar></app-navbar>
+<section>
+  <div class="container my-5">
+    <div class="showCards d-flex justify-content-between">
+      <div class="topics card text-white bg-primary" >
+        <div class="card-header"><h1>Topics <fa-icon [icon]="users"></fa-icon></h1></div>
+        <div class="card-body">
+          <h5 class="card-title"><h1>{{topicCount}} <fa-icon [icon]="users"></fa-icon></h1> </h5>
+          <p class="card-text"><h2>Total topics are available : {{topicCount}}</h2>
+        </div>
+      </div>
+      <div class="topics card text-white bg-primary" >
+        <div class="card-header"><h1>Users</h1></div>
+        <div class="card-body">
+          <h5 class="card-title"><h1>{{topicCount}}</h1></h5>
+          <p class="card-text"><h2>Total topics are available : {{topicCount}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

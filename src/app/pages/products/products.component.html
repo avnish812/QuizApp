@@ -1,0 +1,43 @@
+<div class="myProduct">
+    <div class="prod-details">
+        <button (click)="convertTogrid()">table Format</button>
+        <div *ngIf="showtable">
+        <table style="width:100%" class="table table-striped table-bordered table-fixed text-center">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>category</th>
+                    <th>description</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>image</th>
+
+                </tr>
+            </thead>
+            <tbody class="bg-color">
+                <tr *ngFor="let item of myProductDetails">
+                    <td>{{item.id}}</td>
+                    <td>{{item.category}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.price}}</td>
+                    <!-- <td src>{{item.image}}</td> -->
+                    <td><img src="{{item.image}}" alt=""></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <div class="gridFormat">
+        <button (click)="convertTogrid()">Grid Format</button>
+        <div class="grid" *ngFor="let item of myProductDetails" >
+            <div class="card" style="width: 18rem;"  >
+                <img src="{{item.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">{{item.description}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

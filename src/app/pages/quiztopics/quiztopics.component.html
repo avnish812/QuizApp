@@ -1,0 +1,41 @@
+
+<div class="container my-5 mx-auto" ng-init="loadAllTopics()">
+  <div class="title-heading mt-2">
+    <h1>Quiz Topic</h1>
+  </div>
+  <div class="d-flex mb-3">
+    <div class="me-auto p-2">
+      <button class="btn btn-primary" value="Go back!" (click)="backClicked()">Go Back</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-primary"><a   class="text-white" (click)="addTopicPopup()" >Add Topic</a></button>
+    </div>
+  </div>
+
+  <div class="table-responsive mt-3">
+    <table class="table table-striped table-bordered table-fixed text-center">
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Topic</th>
+          <th>Duration (min)</th>
+          <th>Status</th>
+          <th>Assign</th>
+          <th>Update</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tbody class="bg-color">
+        <tr *ngFor="let topics of topicList; let i = index">
+          <td class="col-1">{{i+1}} </td>
+          <td class="col-2"> {{topics.quiz_topic | uppercase}}</td>
+          <td class="col-2">{{topics.quiz_duration}} min</td>
+          <td class="col-2">{{topics.status | ActiveInactive |uppercase}} <span [ngClass]="'status-' + (topics.status | ActiveInactive)" class="status-indicator"></span></td>
+          <td class="col-1" (click)="openAssignQuiz(topics.quiz_id)"> <fa-icon [icon]="faCoffee"></fa-icon> </td>
+          <td class="col-1"><a (click)="editTopicPopup(topics.quiz_id)" ><fa-icon [icon]="faEdit"></fa-icon></a></td>
+          <td class="col-1"><a [routerLink]="['/quiz-question',topics.quiz_id]"><fa-icon [icon]="faView"></fa-icon></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+.login-area .content {
+  background-color: #f5faff;
+  border-radius: 4px;
+  padding: 30px;
+}
+
+.login-area .login-img {
+  width: 100%;
+  height: auto;
+}
+.editable-div-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.editable-div {
+  border: 2px solid #ddd;
+  padding: 10px;
+  min-height: 40px; /* Make sure it’s tall enough */
+  cursor: text;
+  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  background-color: #fafafa;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.editable-div:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  background-color: #ffffff;
+  outline: none;
+}
+
+.editable-div:empty:before {
+  content: 'Click here to type...';
+  color: #999;
+}
+
+.editable-div:focus:before {
+  content: '';
+}
+
+.dropdown {
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-top: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 0 0 4px 4px;
+}
+
+.dropdown div {
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown div:hover {
+  background-color: #f1f1f1;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.bg-color {
+  background-color: #f5faff !important;
+}
+
+.bg-color-1 {
+  background: #1544a8 !important;
+}
+
+.title-heading {
+  text-align: center;
+  color: #1544a8;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-area {
+  width: 900px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+
+div small{
+  color: red;
+  font-weight: bold;
+}
+
+
+input.ng-invalid.ng-touched{
+  border: red 2px solid;
+  box-shadow: 0 0 0 .25rem rgb(255 2 69 / 36%);
+
+}
