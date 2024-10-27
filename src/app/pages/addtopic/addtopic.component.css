@@ -1,0 +1,13 @@
+.mat-mdc-dialog-actions {
+  justify-content: space-evenly;
+}
+
+.adtopic {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+.mat-mdc-form-field{
+  margin: 0 auto;
+}

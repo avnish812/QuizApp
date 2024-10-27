@@ -1,0 +1,38 @@
+<style>
+  .card {
+      border-radius: 15px;
+  }
+</style>
+<div ng-include="'navbar.html'"></div>
+
+<div class="container mt-5 ">
+  <div class="card text-center"  ng-hide="quizDetails.length == 0">
+      <div class="card-header bg-color-1 text-white fs-4 fw-semibold">
+          Online Quiz
+      </div>
+      <div class="card-body">
+          <h3 class="card-title">Welcome</h3>
+          <p class="card-text fs-5">With supporting text below as a natural lead-in to additional content.</p>
+      </div>
+      <div class="card-footer bg-color fs-6 " >
+          Your Test Topic is below
+      </div>
+  </div>
+
+  <div class="row mt-4 d-flex align-items-center justify-content-center" ng-init="participantQuiz()">
+      <div class="col-4  my-2" ng-repeat="data in quizDetails">
+          <div class="card bg-color">
+              <div class="card-body">
+                  <h5 class="card-title">Test Topic</h5>
+                  <p class="card-text">Click on below button to start test</p>
+                  <a ng-href="#/starttest/" class="btn btn-primary"></a>
+              </div>
+          </div>
+      </div>
+
+  <div class="card text-center bg-color col-8" style="border: 2px solid #1544a8;" ng-show="quizDetails.length == 0">
+      <div class="card-body">
+    <h2 class=" my-5">You have completed the quiz assigned or has not been assigned any quiz</h2>
+      </div>
+  </div>
+  </div>

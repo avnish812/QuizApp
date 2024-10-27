@@ -1,0 +1,7 @@
+.row{
+  display: flex;
+  gap: 10px;
+};
+.col-md-6{
+  margin: 0 auto!important;
+}

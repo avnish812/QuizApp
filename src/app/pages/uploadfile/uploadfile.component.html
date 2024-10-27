@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-md-6">
+    </div>
+      <h3>file upload </h3>
+      <div class="mb-3">
+        <input #singleInput type="file" name="image" (change)="selectImage($event)">
+      </div>
+      <div class="upload">
+         <button mat-raised-button  type="submit" (click)="onUpload()">Upload</button>
+      </div>
+      <div class="mainImage">
+        <img [src]="selectedFileBLOB" height="200" >
+      </div>
+  </div>
+</div>

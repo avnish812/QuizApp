@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-6 text-center mx-auto">
+    <div mat-card-title>
+      <h1>Employee Form</h1>
+    </div>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="regForm" >
+        <div class="row d-flex">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="id">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Name</mat-label>
+            <input matInput placeholder="name" formControlName="name">
+          </mat-form-field>
+        </div>
+        <div class="row d-flex">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="*******" formControlName="password">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="email" formControlName="email">
+          </mat-form-field>
+        </div>
+
+        <div class="row d-flex">
+          <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-label><b>Gender</b></mat-label>
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+            <mat-radio-button value="others">Others</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div>
+          <button mat-raised-button color="primary">Submit</button>
+          <a routerLink='/login' mat-raised-button color="accent">Back To Login</a>
+
+        </div>
+      </form>
+    </mat-card-content>
+  </div>
+</div>
+<router-outlet></router-outlet>

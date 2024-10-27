@@ -1,0 +1,44 @@
+<div>
+    <div class="container" style="width: 49rem">
+        <div class="title-heading mt-2">
+            <h1> Questions</h1>
+        </div>
+        <div class="d-flex mb-3">
+            <div class="me-auto p-2">
+                <button class="btn btn-primary" value="Go back!" onClick="history.back()">Go Back</button>
+            </div>
+            <div class="p-2">
+                <button class="btn btn-primary "><a [routerLink]="['/add-question']" class="text-white">Add Question</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container my-3" *ngFor="let question of topicQ; let i = index">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-lg-7">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h3 class="pt-2">Q{{i+1}}. {{question.question}}</h3>
+                    </div>
+                    <div class="card-body" *ngIf="question.question_type == 'MCQ'">
+                        <p class="card-text">1) {{question.option_1}}</p>
+                        <p class="card-text">2) {{question.option_2}}</p>
+                        <p class="card-text">3) {{question.option_3}}</p>
+                        <p class="card-text">4) {{question.option_4}}</p>
+                    </div>
+                    <div class="card-body" *ngIf="question.question_type == 'Statement'">
+                        <p class="card-text">Statement</p>
+                    </div>
+                    <div class="card-footer bg-color">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="card-title" *ngIf="question.question_type == 'MCQ'">Answer :
+                                {{question.correct_answer}} </h6>
+                            <h6 class="card-title" *ngIf="question.question_type == 'MCQ'">Marks : {{question.marks}}
+                            </h6>
+                            <a [routerLink]="['/editquestion',question.question_id]"><fa-icon [icon]="faedit"></fa-icon></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

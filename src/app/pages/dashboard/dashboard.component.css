@@ -1,0 +1,12 @@
+
+.container{
+    width: 100%;
+    position: relative;
+}
+
+.topics{
+    width: 40%;
+}
+.users{
+    width: 40%;
+}

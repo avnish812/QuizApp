@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <div class="w-25 py-1"><img src="../assets/img/logo.png" class="img-fluid w-50 bg-white p-1 "></div>
+        <div class="navbar-brand text-white "> Logged-in as {{role}}</div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ng-container *ngFor="let link of navLinks">
+                    <li class="nav-item" *ngIf="canShowLink(link.roles)">
+                        <a class="active" aria-current="page" [routerLink]="[link.path]">{{link.label}}</a>
+                     
+                    </li>
+                </ng-container>
+                <li class="nav-item">
+                    <button (click)="logout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
