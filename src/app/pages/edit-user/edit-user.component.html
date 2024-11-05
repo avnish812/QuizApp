@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="inputs">
+                <form [formGroup]="edituserform" (submit)="editForm()">
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input type="text" matInput formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Status</mat-label>
+                        <input type="text" matInput formControlName="status">
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

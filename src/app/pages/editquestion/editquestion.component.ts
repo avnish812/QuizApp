@@ -9,14 +9,15 @@ import { QuiztopicsService } from 'src/app/core/services/quiztopics.service';
   styleUrls: ['./editquestion.component.css']
 })
 export class EditquestionComponent implements OnInit {
-  editQForm:FormGroup
-  ques_id!:any;
+  editQForm: FormGroup
+  ques_id!: any;
+  quiz_id:string='';
   constructor(
-    private fb:FormBuilder,
-    private QTS:QuiztopicsService,
-    private route:ActivatedRoute,
-    private router : Router
-  ){
+    private fb: FormBuilder,
+    private QTS: QuiztopicsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.editQForm = this.fb.group({
       question_id: ['', [Validators.required]],
       question_type: ['', [Validators.required]],
@@ -29,59 +30,56 @@ export class EditquestionComponent implements OnInit {
       marks: ['', [Validators.required]],
       status: ['', [Validators.required]]
     })
-
   }
 
   ngOnInit(): void {
-   this.ques_id = this.route.snapshot.params['question_id'];
-   this.getQuesDataById();
-  }
-  editQues(data:any){
+    console.log(this.route)
+    this.quiz_id = this.route.snapshot.queryParams['quiz_id']
+    this.ques_id = this.route.snapshot.params['question_id'];
+    this.getQuesDataById();
+  };
+
+  editQues(data: any) {
     this.editQForm.patchValue({
-      question_id:data[0].question_id,
-      question_type:data[0].question_type,
+      question_id: data[0].question_id,
+      question_type: data[0].question_type,
       question: data[0].question,
-      option_1:  data[0].option_1,
-      option_2:  data[0].option_2,
-      option_3:  data[0].option_3,
-      option_4:  data[0].option_4,
-      correct_answer:  data[0].correct_answer,
-      marks:  data[0].marks,
+      option_1: data[0].option_1,
+      option_2: data[0].option_2,
+      option_3: data[0].option_3,
+      option_4: data[0].option_4,
+      correct_answer: data[0].correct_answer,
+      marks: data[0].marks,
       status: data[0].status,
     })
   }
 
-  getQuesDataById(){
+  getQuesDataById() {
     const ques_id = {
-      'question_id':this.ques_id
+      'question_id': this.ques_id
     };
-    console.log(ques_id)
     this.QTS.questionById(ques_id).subscribe({
-      next:(res)=>{
-      console.log(res)
-      this.editQues(res)
+      next: (res) => {
+        this.editQues(res)
       },
-      error:(err)=>{
-
+      error: (err) => {
+        console.log(err.message)
       }
     })
-  }
+  };
 
-  updateQuestion(){
+  updateQuestion() {
     const payload = {
       ...this.editQForm.value
-    }
-    console.log(payload)
+    };
     this.QTS.editQuestion(payload).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res)
-        // this.notify.showSuccess('Question Added Succesfully !')
-        this.router.navigate(['quiz-question',])
+        this.router.navigate(['quiz-question',this.quiz_id])
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err)
       }
     })
-
   }
 }

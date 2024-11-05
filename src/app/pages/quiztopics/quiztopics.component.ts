@@ -23,7 +23,7 @@ export class QuiztopicsComponent {
   constructor(
     private _location: Location,
     private getTopiclist: QuiztopicsService,
-    private route: Router,
+    private router: Router,
     private dialog: MatDialog,
     private sharedTopic : TopicSericesService
   ) {  }
@@ -84,11 +84,16 @@ export class QuiztopicsComponent {
         this.getTopicslist() // Optionally reload topics if needed
       }
     });
+  };
+
+  viewTopicQuestion(quiz_id:number){
+    this.router.navigate(['/quiz-question',quiz_id])
   }
 
   getTopicslist() {
     this.getTopiclist.getTopics().subscribe((res: any) => {
       if (res) { 
+        console.log(res)
         this.topicList = res;
       } else {
         alert("geting some problem");

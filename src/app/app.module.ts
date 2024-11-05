@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  FilterOptionsPipe, LoginComponent } from './pages/login/login.component';
 import { MaterialModule } from 'src/material.module';
 import { HomeComponent } from './pages/home/home.component';
-import { UserlistingComponent } from './pages/userlisting/userlisting.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
@@ -39,6 +38,8 @@ import {  statusPipe } from './shared/pipes/status.pipe';
 import { QuizQuestionsComponent } from './pages/quiz-questions/quiz-questions.component';
 import { AddQuestionComponent } from './pages/add-question/add-question.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { UserlistsComponent } from './pages/userlists/userlists.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,6 @@ import { ProductsComponent } from './pages/products/products.component';
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
-    UserlistingComponent,
     DashboardComponent,
     NavbarComponent,
     UserDashboardComponent,
@@ -62,6 +62,8 @@ import { ProductsComponent } from './pages/products/products.component';
     QuizQuestionsComponent,
     AddQuestionComponent,
     ProductsComponent,
+    UserlistsComponent,
+    EditUserComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -91,9 +93,6 @@ import { ProductsComponent } from './pages/products/products.component';
 
   ],
   providers: [
-    TopicSericesService,
-    AuthService,
-    NotificationService,
     {
       provide:HTTP_INTERCEPTORS,
       useClass:CustomeInterceptor,

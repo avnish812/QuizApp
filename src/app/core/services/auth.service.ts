@@ -31,12 +31,19 @@ export class AuthService {
     return this.http.get<APIResponse>(`${this.apiUrl}` + Constant.API_END_POINT.GET_TOPICS);
   };
 
+  userslist(){
+    return this.http.get(`${this.apiUrl}`+ Constant.API_END_POINT.USER_LISTS)
+  };
+
+  editUser(){
+    return this.http.get(`${this.apiUrl}`+ Constant.API_END_POINT.EDIT_USER)
+  };
+
   private getUserFromToken(): any {
     const token = localStorage.getItem('token');
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        // console.log(decoded)
         return decoded // Extract user information from token
       } catch (e) {
         // console.error('Invalid token', e);

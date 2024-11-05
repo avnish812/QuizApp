@@ -20,12 +20,12 @@ export class LayoutComponent implements OnInit {
     { path: '/dashboard', label: 'Dashboard', roles: ['Administrator', 'Participant'] },
     { path: '/userdashboard', label: 'User Dashboard', roles: ['Participant'] },
     { path: '/quiztopics', label: 'Quiz', roles: ['Administrator'] },
-    { path: '/addquestion', label: 'Questions', roles: ['Administrator'] },
-    { path: '/userslist', label: 'Participant List', roles: ['Administrator'] },
+    { path: '/add-question', label: 'Questions', roles: ['Administrator'] },
+    { path: '/userlists', label: 'Participant List', roles: ['Administrator'] },
     { path: '/quizreport', label: 'Report', roles: ['Administrator'] },
     { path: '/products', label: 'Products', roles: ['Administrator'] },
-
     { path: '/uploadfile', label: 'Upload', roles: [] }  // Accessible to all roles
+
   ];
 
   ngOnInit() {

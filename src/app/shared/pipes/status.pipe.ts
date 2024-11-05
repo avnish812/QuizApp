@@ -7,9 +7,8 @@ export class statusPipe implements PipeTransform{
 
     transform(value: string, ...args: any[]):any {
        if(value === null || value === undefined){
-        return 'unknown'
-       }
-
+        return 'unknown';
+       };
        const valueLower = value.toLowerCase();
        switch(valueLower){
         case 'a': return 'Active';

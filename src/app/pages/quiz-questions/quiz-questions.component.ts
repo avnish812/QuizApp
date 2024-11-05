@@ -1,5 +1,6 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { subscribeOn, Subscription } from 'rxjs';
 import { Topics } from 'src/app/core/models/API.Models';
@@ -18,7 +19,8 @@ export class QuizQuestionsComponent {
   constructor(
     public route: ActivatedRoute,
     public QTS:QuiztopicsService,
-    private notify:NotificationService
+    private notify:NotificationService,
+    public router:Router
   ) { }
 
   ngOnInit(): void {
@@ -29,13 +31,17 @@ export class QuizQuestionsComponent {
       } else{
         console.log('quizid is undefined')
       }
-    })
+    });
+  };
+
+  editQuestion(QuestionId:number){
+    this.router.navigate(['editquestion',QuestionId],{queryParams:{'quiz_id':this.quiz_id}})
   }
 
   getQById(){
     const payload = {
       'quiz_id':Number(this.quiz_id)
-    }
+    };
     this.QTS.getQ(payload).subscribe({
       next:(value:any) =>{
         this.topicQ = value;
@@ -45,6 +51,6 @@ export class QuizQuestionsComponent {
         console.log(err)
         this.notify.showError(`No Question Found : ${err.error.error.message}`)
       },
-    })
-  }
+    });
+  };
 }

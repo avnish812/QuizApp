@@ -9,8 +9,11 @@ export const  Constant = {
         QUIZ_ASSIGNED       : 'quiz/assignquizusers',
         TOPIC_QUESTIONS     : 'quiz/topicquestions',
         ADD_QUESTIONS       : 'question/addquestion',
-        QUESTION_BY_ID       : 'question/questionbyid',
-        EDIT_QUESTION       : 'question/editquestion'
+        QUESTION_BY_ID      : 'question/questionbyid',
+        EDIT_QUESTION       : 'question/editquestion',
+        USER_LISTS          : 'user/userslist',
+        EDIT_USER          : 'user/edituser'
+
     },
     VALIDATION_MESSAGE:{
         REQUIRED:'THIS IS REQUIRED'

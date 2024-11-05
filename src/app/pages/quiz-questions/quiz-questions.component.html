@@ -34,7 +34,7 @@
                                 {{question.correct_answer}} </h6>
                             <h6 class="card-title" *ngIf="question.question_type == 'MCQ'">Marks : {{question.marks}}
                             </h6>
-                            <a [routerLink]="['/editquestion',question.question_id]"><fa-icon [icon]="faedit"></fa-icon></a>
+                            <a (click)="editQuestion(question.question_id)"><fa-icon [icon]="faedit"></fa-icon></a>
                         </div>
                     </div>
                 </div>

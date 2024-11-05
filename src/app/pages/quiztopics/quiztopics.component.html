@@ -33,7 +33,7 @@
           <td class="col-2">{{topics.status | ActiveInactive |uppercase}} <span [ngClass]="'status-' + (topics.status | ActiveInactive)" class="status-indicator"></span></td>
           <td class="col-1" (click)="openAssignQuiz(topics.quiz_id)"> <fa-icon [icon]="faCoffee"></fa-icon> </td>
           <td class="col-1"><a (click)="editTopicPopup(topics.quiz_id)" ><fa-icon [icon]="faEdit"></fa-icon></a></td>
-          <td class="col-1"><a [routerLink]="['/quiz-question',topics.quiz_id]"><fa-icon [icon]="faView"></fa-icon></a></td>
+          <td class="col-1"><a (click)="viewTopicQuestion(topics.quiz_id)" ><fa-icon [icon]="faView"></fa-icon></a></td>
         </tr>
       </tbody>
     </table>

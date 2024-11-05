@@ -59,7 +59,7 @@ export class QuiztopicsService {
             { responseType: 'text' as 'json'}
 
         )
-    }
+    };
 
     getAllProducts(){
         return this.http.get('https://fakestoreapi.com/products');

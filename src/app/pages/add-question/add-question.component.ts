@@ -52,7 +52,6 @@ export class AddQuestionComponent {
   };
 
   topicSelected(e: any) {
-    console.log(e)
     const selectedTopic = e.value; 
     //  this.questionForm.controls['quiz_id'].setValue(selectedTopic.quiz_topic)
     this.questionForm.get('quiz_id')?.setValue(selectedTopic);
@@ -69,18 +68,16 @@ export class AddQuestionComponent {
   getTopics() {
     this.QTS.getTopics().subscribe({
       next: (res) => {
-        console.log(res)
         this.getQuestionAnswers = res;
       },
       error:(err)=> {
         console.log(err);
       },
-    })
+    });
   };
 
   postQuestion() {
     const payload = this.questionForm.value;
-    
     // Adjust payload based on question type
     if (payload.question_type !== 'MCQ') {
       delete payload.option_1;
@@ -89,13 +86,13 @@ export class AddQuestionComponent {
       delete payload.option_4;
       delete payload.correct_answer;
       delete payload.marks;
-    }
+    };
 
     if (this.questionForm.invalid) {
       this.questionForm.markAllAsTouched();
       this.notify.showError('Please fill all required fields correctly.');
       return;
-    }
+    };
     this.QTS.addQuestion(payload).subscribe({
       next: (value) => {
         console.log(value)

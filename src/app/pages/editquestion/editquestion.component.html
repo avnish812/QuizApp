@@ -61,8 +61,8 @@
                     </mat-label>
                     <input matInput [matAutocomplete]="status" formControlName="status">
                     <mat-autocomplete #status="matAutocomplete" >
-                        <mat-option *ngFor="let status of ['Active','Inactive']" [value]="status">
-                            {{status}}
+                        <mat-option *ngFor="let status of ['A','D'] " [value]="status ">
+                            {{status |ActiveInactive}}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
